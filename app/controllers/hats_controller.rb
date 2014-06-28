@@ -15,6 +15,21 @@ class HatsController < ApplicationController
     end
   end
 
+  def show
+    @hat = Hat.find(params[:id])
+  end
+
+  def edit
+    @hat = Hat.find(params[:id])
+  end
+
+  def update
+    @hat = Hat.find(params[:id])
+    @hat.update_attributes!(hat_params)
+
+    redirect_to hats_path
+  end
+
   private
   def hat_params
     params.require(:hat).permit(:brand, :fit)

@@ -8,14 +8,6 @@
     <%= f.text_field :fit %>
   </p>
   <p>
-    <%= f.submit 'Add hat' %>
+    <%= f.submit 'Update hat' %>
   </p>
-<% end %>
-
-<%= @hats.each do |hat| %>
-<ul>
-  <li>
-    <%= link_to "#{hat.brand}", hat_path(hat) %>, <%= hat.fit %>
-  </li>
-</ul>
 <% end %>
