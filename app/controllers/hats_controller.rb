@@ -30,6 +30,12 @@ class HatsController < ApplicationController
     redirect_to hats_path
   end
 
+  def destroy
+    @hat = Hat.find(params[:id]).delete
+
+    redirect_to hats_path
+  end
+
   private
   def hat_params
     params.require(:hat).permit(:brand, :fit)

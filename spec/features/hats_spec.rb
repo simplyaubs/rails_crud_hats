@@ -32,6 +32,22 @@ feature 'CRUD hats' do
     expect(page).to have_content 'Large'
     expect(page).to_not have_content 'Goorin Bros'
     expect(page).to_not have_content 'Medium'
+  end
 
+  scenario 'User can delete a user form list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a hat'
+    fill_in 'Brand', with: 'Goorin Bros'
+    fill_in 'Fit', with: 'Medium'
+    click_on 'Add hat'
+    expect(page).to have_content 'Goorin Bros'
+    expect(page).to have_content 'Medium'
+    click_on 'Goorin Bros'
+    expect(page).to have_content 'Goorin Bros'
+    expect(page).to have_content 'Medium'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Goorin Bros'
+    expect(page).to_not have_content 'Medium'
   end
 end
